@@ -127,6 +127,7 @@ export function stepCounts(rec) {
     else if (s.type === 'bug') c.bugs++;
     else if (s.type === 'note') c.notes++;
     else c.actions++;
+    if (s.type === 'bug') continue; // bugs are counted separately
     if (s.status === 'pass') c.pass++;
     else if (s.status === 'fail') c.fail++;
     else if (s.status === 'blocked') c.blocked++;

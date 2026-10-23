@@ -1,4 +1,5 @@
-body { width: 330px; background: var(--surface); }
+html, body { background: var(--surface); }
+body { width: 330px; }
 
 .head {
   display: flex;

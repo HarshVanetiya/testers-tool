@@ -55,9 +55,9 @@ const REPORT_CSS = `
   table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
   th { text-align: left; background: #f4f4f5; color: #3f3f46; font-weight: 650; padding: 7px 8px; border-bottom: 1px solid #d4d4d8; }
   td { padding: 7px 8px; border-bottom: 1px solid #ececef; vertical-align: top; overflow-wrap: anywhere; }
-  tr.checkpoint td { background: #f8f8ff; } tr.bug td { background: #fff6f6; } tr.note td { background: #fbfbf4; }
+  tr.row-checkpoint td { background: #f8f8ff; } tr.row-bug td { background: #fff6f6; } tr.row-note td { background: #fbfbf4; }
   .num { width: 34px; color: #71717a; font-variant-numeric: tabular-nums; }
-  .type { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #71717a; font-weight: 650; display: block; }
+  td .type { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #71717a; font-weight: 650; display: block; }
   .sel { font: 11px ui-monospace, Menlo, Consolas, monospace; color: #71717a; display: block; margin-top: 2px; }
   .st { font-weight: 700; white-space: nowrap; }
   .st.pass { color: #0a8a0a; } .st.fail { color: #c62f2f; } .st.blocked { color: #b26b00; } .st.done, .st.info { color: #71717a; font-weight: 550; }
@@ -119,7 +119,7 @@ export function buildReportHtml(rec, shots, settings = {}, opts = {}) {
     .map((s) => {
       const shot = withShots && shots.get(s.id);
       const st = stepStatus(s);
-      return `<tr class="${e(s.type)}">
+      return `<tr class="row-${e(s.type)}">
         <td class="num">${s.number}</td>
         <td><span class="type">${e(ACTION_LABELS[s.type] || s.type)}</span>${e(s.description)}
           ${s.selector ? `<span class="sel">${e(s.selector)}</span>` : ''}
