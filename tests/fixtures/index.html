@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Demo Shop – Login</title>
+<style>body{font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 16px} label{display:block;margin:10px 0 4px} input,select{padding:6px} .row{margin:12px 0}</style>
+</head>
+<body>
+  <h1>Demo Shop</h1>
+  <form id="login-form" name="login" onsubmit="event.preventDefault(); document.getElementById('msg').textContent='Welcome!'">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" placeholder="you@example.com">
+    <label for="pw">Password</label>
+    <input id="pw" name="password" type="password">
+    <div class="row"><label><input type="checkbox" name="remember" data-testid="remember"> Remember me</label></div>
+    <label for="country">Country</label>
+    <select id="country" name="country"><option value="">Choose…</option><option value="in">India</option><option value="us">United States</option></select>
+    <div class="row">
+      <label><input type="radio" name="plan" value="free"> Free plan</label>
+      <label><input type="radio" name="plan" value="pro"> Pro plan</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  <p id="msg"></p>
+  <div class="row">
+    <button id="spa" onclick="history.pushState({}, '', '/products'); document.title='Products'">Go to products (SPA)</button>
+    <button data-testid="broken" onclick="fetch('/api/missing'); console.error('Something broke', {code: 42})">Load recommendations</button>
+    <input id="search" type="search" placeholder="Search products">
+  </div>
+  <a href="page2.html">Open page 2</a>
+  <iframe src="frame.html" style="display:block;margin-top:16px;width:300px;height:80px;border:1px solid #ccc"></iframe>
+  <div style="height:1500px"></div>
+</body>
+</html>

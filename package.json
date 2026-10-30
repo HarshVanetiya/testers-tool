@@ -1,0 +1,15 @@
+{
+  "name": "testtrail",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TestTrail \u2013 Chrome extension (MV3) that records manual QA test steps and generates test reports.",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/e2e.mjs",
+    "icons": "python3 tools/generate-icons.py",
+    "package": "node tools/package.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}
